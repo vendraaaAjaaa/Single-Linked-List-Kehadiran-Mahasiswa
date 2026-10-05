@@ -108,6 +108,108 @@ void deleteLast() {
     cout << "Data paling belakang berhasil dihapus.\n";
 }
 
+void isiDataAwal() {
+    insertLast("103032500005", "Fadhil Asyam Damanik", 100);
+    insertLast("103032500041", "Rahsya Iman Dehavilland", 100);
+    insertLast("103032500146", "Mahesa Putra Mulyawan", 100);
+    insertLast("103032500149", "Gyio Rangga Satria Putra", 100);
+    insertLast("103032500150", "Naufal Nafiz Faturrahman", 100);
+    insertLast("103032500153", "Fazli Baktiadi", 100);
+    insertLast("103032500159", "Matthew Glen Abram Pakpahan", 100);
+    insertLast("103032500176", "Vendra Fausta Andrean", 100);
+    insertLast("103032500180", "Dzaky Allam Shidiq", 100);
+    insertLast("103032500191", "Nayla Novtiera Anjani", 100);
+    insertLast("103032540001", "Fathin Arib Nurhumam", 100);
+    insertLast("103032540002", "Ida Bagus Harell", 100);
+    insertLast("103032540003", "Nigel William Pieters", 100);
+    insertLast("103032540004", "Aqila Fathatulayya", 100);
+    insertLast("103032540005", "Badriah Nuraini Rahayu", 100);
+}
+
+int main() {
+    int pilihan;
+
+    string nim;
+    string nama;
+    float kehadiran;
+
+    isiDataAwal();
+
+    do {
+        cout << "\n=====================================\n";
+        cout << " SINGLE LINKED LIST KEHADIRAN\n";
+        cout << "=====================================\n";
+        cout << "1. Tampilkan daftar mahasiswa\n";
+        cout << "2. Insert Head\n";
+        cout << "3. Insert Last\n";
+        cout << "4. Delete Head\n";
+        cout << "5. Delete Last\n";
+        cout << "0. Keluar\n";
+        cout << "=====================================\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+
+            case 1:
+                cetakDaftar();
+                break;
+
+            case 2:
+                cout << "\n--- INSERT HEAD ---\n";
+
+                cout << "Masukkan NIM               : ";
+                cin >> nim;
+
+                cin.ignore();
+
+                cout << "Masukkan Nama              : ";
+                getline(cin, nama);
+
+                cout << "Persentase Kehadiran (%)   : ";
+                cin >> kehadiran;
+
+                insertHead(nim, nama, kehadiran);
+                break;
+
+            case 3:
+                cout << "\n--- INSERT LAST ---\n";
+
+                cout << "Masukkan NIM               : ";
+                cin >> nim;
+
+                cin.ignore();
+
+                cout << "Masukkan Nama              : ";
+                getline(cin, nama);
+
+                cout << "Persentase Kehadiran (%)   : ";
+                cin >> kehadiran;
+
+                insertLast(nim, nama, kehadiran);
+                break;
+
+            case 4:
+                deleteHead();
+                break;
+
+            case 5:
+                deleteLast();
+                break;
+
+            case 0:
+                cout << "\nProgram selesai.\n";
+                break;
+
+            default:
+                cout << "\nPilihan tidak tersedia.\n";
+        }
+
+    } while (pilihan != 0);
+
+    return 0;
+}
+
 int main() {
     return 0;
 }
