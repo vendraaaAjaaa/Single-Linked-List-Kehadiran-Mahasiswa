@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 struct Mahasiswa {
@@ -108,6 +109,44 @@ void deleteLast() {
     cout << "Data paling belakang berhasil dihapus.\n";
 }
 
+void cetakDaftar() {
+    if (head == nullptr) {
+        cout << "\nData mahasiswa masih kosong.\n";
+        return;
+    }
+
+    Mahasiswa* bantu = head;
+    int nomor = 1;
+
+    cout << "\n===============================================================\n";
+    cout << "                 DAFTAR KEHADIRAN MAHASISWA\n";
+    cout << "===============================================================\n";
+
+    cout << left
+         << setw(5)  << "No"
+         << setw(15) << "NIM"
+         << setw(25) << "Nama"
+         << setw(15) << "Kehadiran"
+         << endl;
+
+    cout << "---------------------------------------------------------------\n";
+
+    while (bantu != nullptr) {
+        cout << left
+             << setw(5)  << nomor
+             << setw(15) << bantu->nim
+             << setw(25) << bantu->nama
+             << fixed << setprecision(1)
+             << bantu->persentaseKehadiran << "%"
+             << endl;
+
+        bantu = bantu->next;
+        nomor++;
+    }
+
+    cout << "===============================================================\n";
+}
+
 void isiDataAwal() {
     insertLast("103032500005", "Fadhil Asyam Damanik", 100);
     insertLast("103032500041", "Rahsya Iman Dehavilland", 100);
@@ -207,9 +246,5 @@ int main() {
 
     } while (pilihan != 0);
 
-    return 0;
-}
-
-int main() {
     return 0;
 }
